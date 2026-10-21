@@ -198,7 +198,19 @@ form.addEventListener("submit", async ev => {
   renderSlots(); renderBookings();
 
 ///////////SMTP Email Sending Logic///////////
-const API_BASE_URL = "https://web-application-1-36hi.onrender.com";
+let API_BASE_URL;
+
+if (
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+) {
+  API_BASE_URL = "http://localhost:3000";
+} else {
+  API_BASE_URL = " https://web-application-shme.onrender.com";
+  
+}
+
+
 async function sendSMTPEmail(booking) {
   const response = await fetch(
     `${API_BASE_URL}/api/send-appointment-email`,
