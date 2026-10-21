@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Appointment | SmileCare Dental Clinic, Chennai</title><meta name="description" content="Book a dental appointment (demo)">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"></head>
+<body><a class="skip" href="#main">Skip to content</a><header id="site-header"></header><main id="main">
+<section><div class="wrap cols"><div><h1>Book an appointment</h1>
+<p class="note">Demo only: bookings are stored in this browser's localStorage. They are not sent to a clinic, are not shared across devices, and do not guarantee real availability. Do not enter real patient data.</p>
+<div id="confirmation" tabindex="-1" hidden role="status"></div>
+<form id="bookingForm" novalidate>
+<label for="name">Patient name *</label><input type="text" id="name" name="name" autocomplete="name"><span class="err" id="err-name"></span>
+<label for="mobile">Mobile number *</label><input type="tel" id="mobile" name="mobile" placeholder="10-digit number" autocomplete="tel"><span class="err" id="err-mobile"></span>
+<label for="email">Email (optional)</label><input type="email" id="email" name="email"><span class="err" id="err-email"></span>
+<label for="service">Treatment *</label><select id="service" name="service"></select><span class="err" id="err-service"></span>
+<label for="date">Preferred date *</label><input type="date" id="date" name="date"><span class="err" id="err-date"></span>
+<fieldset><legend>Available time slots *</legend><div id="slots"></div><p class="muted" id="slotHint"></p><span class="err" id="err-time"></span></fieldset>
+<label for="notes">Notes (optional)</label><textarea id="notes" name="notes" rows="3"></textarea>
+<label class="check"><input type="checkbox" id="consent" name="consent"> I understand this is a demo and I am not entering real personal or medical data. *</label><span class="err" id="err-consent"></span>
+<p class="err" id="formStatus" role="alert"></p><button class="btn" type="submit">Submit appointment</button></form></div>
+<div><h2>Your demo bookings</h2><div id="bookingList"></div><p><button type="button" class="btn small ghost" id="resetDemo">Reset demo data</button></p></div></div></section>
+</main><footer id="site-footer"></footer>
+<script src="js/config.js"></script><script src="js/main.js"></script><script src="js/booking.js"></script></body></html>
