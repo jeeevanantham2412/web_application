@@ -9,6 +9,10 @@ const rateLimit = require("express-rate-limit");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Render runs behind a reverse proxy.
+// Trust only the expected proxy layer; verify this matches
+// your hosting topology before production use.
+app.set("trust proxy", 1);
 app.use(express.json({ limit: "10kb" }));
 
 // Allow only your configured website origins.

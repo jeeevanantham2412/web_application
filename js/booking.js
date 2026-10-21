@@ -198,7 +198,7 @@ form.addEventListener("submit", async ev => {
   renderSlots(); renderBookings();
 
 ///////////SMTP Email Sending Logic///////////
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://your-actual-service.onrender.com";
 
 async function sendSMTPEmail(booking) {
   const response = await fetch(
