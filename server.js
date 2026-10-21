@@ -16,20 +16,27 @@ app.set("trust proxy", 1);
 app.use(express.json({ limit: "10kb" }));
 
 // Allow only your configured website origins.
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
-  .split(",")
-  .map(origin => origin.trim())
-  .filter(Boolean);
+const allowedOrigins = [
+  "https://jeeevanantham2412.github.io",
+  "http://localhost:5500",
+  "http://127.0.0.1:5500"
+];
 
-app.use(cors({
-  origin(origin, callback) {
-    // Requests without an Origin header can include local health checks.
+const corsOptions = {
+  origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
+
+    console.error("CORS blocked origin:", origin);
     return callback(new Error("Origin not allowed"));
-  }
-}));
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
 
 // Basic protection against excessive requests.
 app.use("/api/", rateLimit({
